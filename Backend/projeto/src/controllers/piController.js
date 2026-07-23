@@ -1,8 +1,7 @@
+const PI = require('../models/PI');
 
+require('../models/PI')
 
-
-
-// Validação comum
 const validatePIData = (data, isUpdate = false) => {
   const errors = [];
   
@@ -116,7 +115,7 @@ exports.getAllPIs = async (req, res) => {
 // READ (Single)
 exports.getPIById = async (req, res) => {
   try {
-    const pi = await PI.findById(req.params.id);
+    const pi = await PI.findByPk(req.params.id);
     if (!pi) {
       return res.status(404).json({ 
         success: false, 
@@ -142,7 +141,7 @@ exports.updatePI = async (req, res) => {
     }
 
     // Verifica se a PI existe antes de atualizar
-    const existingPI = await PI.findById(req.params.id);
+    const existingPI = await PI.findByPk(req.params.id);
     if (!existingPI) {
       return res.status(404).json({ 
         success: false, 
@@ -158,7 +157,8 @@ exports.updatePI = async (req, res) => {
       });
     }
 
-    const updatedPI = await PI.update(req.params.id, req.body);
+    await PI.update(req.body, {where: {id: req.params.id}});
+    const updatedPI = await PI.findByPk(req.params.id);
     res.json({ success: true, data: updatedPI });
   } catch (error) {
     res.status(500).json({ 
@@ -172,7 +172,9 @@ exports.updatePI = async (req, res) => {
 // DELETE
 exports.deletePI = async (req, res) => {
   try {
-    const deletedPI = await PI.delete(req.params.id);
+    const pi = await PI.findByPk(req.params.id);
+    if (pi) await pi.destroy();
+    
     if (!deletedPI) {
       return res.status(404).json({ 
         success: false, 

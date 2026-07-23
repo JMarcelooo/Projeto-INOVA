@@ -10,8 +10,8 @@ router.route('/')
 
 
 router.route('/:id')
-  //.get(autorController.getAutorById)/
-  //.put(autorController.updateAutor)
- // .delete(autorController.deleteAutor);
+  .get(autorController.getAutorByID)
+  .put(autorController.updateAutor)
+  .delete(autorController.deleteAutor);
 
 module.exports = router;
