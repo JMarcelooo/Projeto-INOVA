@@ -173,22 +173,20 @@ exports.updatePI = async (req, res) => {
 exports.deletePI = async (req, res) => {
   try {
     const pi = await PI.findByPk(req.params.id);
-    if (pi) await pi.destroy();
+    if (!pi) {
+      return res.status(404).json({
+        error: 'PI não encontrada'
+      })
+    } 
+      
+    await pi.destroy();
     
-    if (!deletedPI) {
-      return res.status(404).json({ 
-        success: false, 
-        error: "PI não encontrada" 
-      });
-    }
-    res.json({ 
+    res.status(200).json({ 
       success: true, 
-      data: deletedPI,
       message: "PI removida com sucesso" 
     });
   } catch (error) {
     res.status(500).json({ 
-      success: false, 
       error: "Erro ao remover PI",
       details: error.message
     });

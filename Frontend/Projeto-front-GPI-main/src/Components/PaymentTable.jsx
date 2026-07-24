@@ -1,17 +1,7 @@
 import React from 'react';
 import '../Paginas/Payments.css';
 
-export default function PaymentTable({ onEdit }) {
-  const pagamentos = [
-    {
-      id: 'PAG-01',
-      pi: 'PI 0910083 0',
-      tipo: 'Anuidade',
-      valor: 'R$ 300,00',
-      vencimento: '02/02/2025',
-      status: 'Pago',
-    }
-  ];
+export default function PaymentTable({ onEdit, pagamentos = [] }) {
 
   return (
     <div className="payment-table">

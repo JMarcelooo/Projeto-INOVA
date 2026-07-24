@@ -1,17 +1,14 @@
 import React from 'react';
 import '../Paginas/Payments.css';
 
-export default function UpcomingPayments({ onRegister }) {
-  const payments = [
-    { title: 'Anuidade - PI 0910083 0', sub: 'Algoritmo', value: 'R$ 800,00', due: '28/06/2023' },
-    { title: 'Anuidade - PI 0910083 0', sub: 'Algoritmo', value: 'R$ 800,00', due: '28/06/2023' },
-  ];
-
+export default function UpcomingPayments({ onRegister, payments = [] }) {
   return (
     <div className="upcoming-section">
       <div className="upcoming-header">
-        <h2>📅 Próximos Pagamentos</h2>
+        <h2>Próximos Pagamentos</h2>
       </div>
+
+      {payments.length === 0 && <p style={{ padding: 16, color: '#888' }}>Nenhum pagamento próximo</p>}
 
       {payments.map((p, i) => (
         <div className="upcoming-card" key={i}>

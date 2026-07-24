@@ -20,7 +20,7 @@ export default function Autor() {
    useEffect(() => {
   axios.get(`${process.env.REACT_APP_API_URL}/api/autores`)
     .then((response) => {
-      setAllAuthors(response.data); // Atualiza o estado com os autores
+      setAllAuthors(response.data.data);
     })
     .catch((error) => {
       console.error("Erro ao buscar autores:", error);
@@ -31,7 +31,7 @@ export default function Autor() {
     const filteredAuthors = allAuthors.filter(author =>
     (author.name && author.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
     (author.email && author.email.toLowerCase().includes(searchTerm.toLowerCase())) ||
-    (author.institution && author.institution.toLowerCase().includes(searchTerm.toLowerCase()))
+    (author.university && author.university.toLowerCase().includes(searchTerm.toLowerCase()))
 );
 
 
@@ -62,7 +62,7 @@ export default function Autor() {
     const handleRegisterSuccess = async (newAuthor) => {
     try {
         const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/autores`, newAuthor);
-        setAllAuthors([...allAuthors, response.data]); // atualiza a lista com o novo
+        setAllAuthors([...allAuthors, response.data.data]);
         setCurrentPage(1);
     } catch (error) {
         console.error("Erro ao cadastrar autor:", error);
@@ -71,12 +71,22 @@ export default function Autor() {
 
     const handleUpdateSuccess = async (updatedAuthor) => {
     try {
-        await axios.put(`${process.env.REACT_APP_API_URL}/api/autores/${updatedAuthor.id}`, updatedAuthor);
+        const response = await axios.put(`${process.env.REACT_APP_API_URL}/api/autores/${updatedAuthor.id}`, updatedAuthor);
         setAllAuthors(allAuthors.map(author =>
-            author.id === updatedAuthor.id ? updatedAuthor : author
+            author.id === updatedAuthor.id ? response.data.data : author
         ));
     } catch (error) {
         console.error("Erro ao atualizar autor:", error);
+    }
+};
+
+    const handleDeleteAuthor = async (id) => {
+    if (!window.confirm("Tem certeza que deseja excluir este autor?")) return;
+    try {
+        await axios.delete(`${process.env.REACT_APP_API_URL}/api/autores/${id}`);
+        setAllAuthors(allAuthors.filter(author => author.id !== id));
+    } catch (error) {
+        console.error("Erro ao deletar autor:", error);
     }
 };
 
@@ -116,8 +126,7 @@ export default function Autor() {
                                 <th>ID</th>
                                 <th>Nome</th>
                                 <th>E-mail</th>
-                                <th>Instituição</th>
-                                <th>PIs Registradas</th>
+                                <th>Universidade</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
@@ -127,16 +136,13 @@ export default function Autor() {
                                     <td>{author.id}</td>
                                     <td>{author.name}</td>
                                     <td>{author.email}</td>
-                                    <td>{author.institution}</td>
+                                    <td>{author.university}</td>
                                     <td>
-                                        <span className="registered-pis-badge">
-                                            {author.registeredPIs}
-                                        </span>
-                                    </td>
-                                    <td>
-                                        {/* Botão para abrir o modal de EDIÇÃO */}
                                         <button className="edit-author-button" onClick={() => handleOpenUpdateModal(author)}>
                                             ✏️
+                                        </button>
+                                        <button className="delete-author-button" onClick={() => handleDeleteAuthor(author.id)} style={{ marginLeft: 8 }}>
+                                            🗑️
                                         </button>
                                     </td>
                                 </tr>

@@ -24,11 +24,10 @@ export default function UpdateAuthorModal({ onClose, author, onUpdateSuccess }) 
 
     
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Lógica para atualizar o autor
         const updatedAuthorData = {
-            ...author, // Mantém o ID e outras propriedades existentes
+            ...author,
             name,
             email,
             bond,
@@ -36,15 +35,15 @@ export default function UpdateAuthorModal({ onClose, author, onUpdateSuccess }) 
             campus,
             university,
         };
-        console.log("Autor atualizado:", updatedAuthorData);
-        // Aqui você faria a chamada API para o backend para atualizar o autor
-
-        // Supondo que a atualização foi bem-sucedida:
-        if (onUpdateSuccess) {
-            onUpdateSuccess(updatedAuthorData); // Passa os dados atualizados de volta (opcional)
+        try {
+            if (onUpdateSuccess) {
+                await onUpdateSuccess(updatedAuthorData);
+            }
+            onClose();
+        } catch (error) {
+            console.error("Erro ao atualizar autor:", error);
+            alert("Erro ao atualizar autor. Verifique os dados e tente novamente.");
         }
-        onClose(); // Fecha o modal após a atualização
-        alert("Autor atualizado com sucesso!"); // Feedback ao usuário
     };
 
     return (

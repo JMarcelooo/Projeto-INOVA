@@ -9,26 +9,18 @@ export default function RegisterAuthorModal({ onClose, onRegisterSuccess }) {
     const [campus, setCampus] = useState('');
     const [university, setUniversity] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Lógica para registrar o novo autor
-        const newAuthorData = {
-            name,
-            email,
-            bond,
-            department,
-            campus,
-            university,
-        };
-        console.log("Novo autor cadastrado:", newAuthorData);
-        // Aqui você faria a chamada API para o backend para cadastrar o autor
-
-        // Supondo que o cadastro foi bem-sucedido:
-        if (onRegisterSuccess) {
-            onRegisterSuccess(newAuthorData); // Passa os dados do novo autor de volta (opcional)
+        const newAuthorData = { name, email, bond, department, campus, university };
+        try {
+            if (onRegisterSuccess) {
+                await onRegisterSuccess(newAuthorData);
+            }
+            onClose();
+        } catch (error) {
+            console.error("Erro ao cadastrar autor:", error);
+            alert("Erro ao cadastrar autor. Verifique os dados e tente novamente.");
         }
-        onClose(); // Fecha o modal após o cadastro
-        alert("Autor cadastrado com sucesso!"); // Feedback ao usuário
     };
 
     return (

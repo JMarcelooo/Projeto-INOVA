@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 // Caminhos CORRIGIDOS para voltar uma pasta (..) e depois entrar em Components
 import Sidebar from '../Components/Sidebar';
 import PaymentCards from '../Components/PaymentCards';
@@ -19,23 +20,19 @@ export default function Payments() {
   const [selectedPayment, setSelectedPayment] = useState(null);
   const [activeTab, setActiveTab] = useState('list'); // Estado para controlar a aba ativa: 'list' ou 'calendar'
 
-  // Estado e dados para o calendário/lista de pagamentos
-  const [calendarSelectedDate, setCalendarSelectedDate] = useState(new Date(2023, 5, 15)); 
+  const [calendarSelectedDate, setCalendarSelectedDate] = useState(new Date());
+  const [allPayments, setAllPayments] = useState([]);
 
-  const allPayments = [
-    { id: 1, description: 'Anuidade - PI 0910083 0', course: 'Algoritmo', dueDate: new Date(2023, 5, 3), amount: 800.00, status: 'Pago' },
-    { id: 2, description: 'Anuidade - PI 0910083 0', course: 'Algoritmo', dueDate: new Date(2023, 5, 15), amount: 800.00, status: 'Atrasado' },
-    { id: 3, description: 'Anuidade - PI 0910083 0', course: 'Algoritmo', dueDate: new Date(2023, 5, 28), amount: 800.00, status: 'Pendente' },
-    { id: 4, description: 'Mensalidade - Inglês', course: 'Inglês Intermediário', dueDate: new Date(2023, 5, 10), amount: 150.00, status: 'Pago' },
-    { id: 5, description: 'Anuidade - Marketing Digital', course: 'Marketing Online', dueDate: new Date(2023, 6, 5), amount: 600.00, status: 'Pendente' },
-    { id: 6, description: 'Consultoria - Projeto X', course: 'Consultoria', dueDate: new Date(2023, 5, 15), amount: 1200.00, status: 'Pendente' },
-    { id: 7, description: 'Parcela Carro', course: 'Financiamento', dueDate: new Date(2023, 5, 18), amount: 750.00, status: 'Pago' },
-  ];
+  useEffect(() => {
+    axios.get(`${process.env.REACT_APP_API_URL}/api/pagamentos`)
+      .then(res => setAllPayments(res.data.data || []))
+      .catch(err => console.error("Erro ao buscar pagamentos:", err));
+  }, []);
 
   const getPaymentsForCalendarMonth = (year, month) => {
     return allPayments.filter(payment =>
-      payment.dueDate.getFullYear() === year &&
-      payment.dueDate.getMonth() === month
+      new Date(payment.dueDate).getFullYear() === year &&
+      new Date(payment.dueDate).getMonth() === month
     );
   };
 

@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// Se os estilos forem muito específicos para esta tela, crie um CSS dedicado
-// import './CadastroPI.css';
-// Ou reutilize o Detalhe1.css se os estilos forem comuns
-import './Detalhe1.css'; // Reutilizando Detalhe1.css para consistência de layout
+import axios from 'axios';
+import './Detalhe1.css';
 
 export default function CadastroPI() {
   const navigate = useNavigate();
-
-  // Estados para os campos do formulário
   const [titulo, setTitulo] = useState('');
   const [status, setStatus] = useState('');
   const [protocolo, setProtocolo] = useState('');
@@ -16,10 +12,11 @@ export default function CadastroPI() {
   const [tipo, setTipo] = useState('');
   const [termoCessao, setTermoCessao] = useState('');
   const [sei, setSei] = useState('');
-  const [autores, setAutores] = useState(['']); // Array para gerenciar múltiplos autores
+  const [autores, setAutores] = useState(['']);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleAddAutor = () => {
-    setAutores([...autores, '']); // Adiciona um novo campo de autor vazio
+    setAutores([...autores, '']);
   };
 
   const handleAutorChange = (index, value) => {
@@ -28,15 +25,21 @@ export default function CadastroPI() {
     setAutores(newAutores);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Lógica para enviar os dados da nova PI (ex: para uma API)
-    console.log('Nova PI a ser cadastrada:', {
-      titulo, status, protocolo, dataEntrada, tipo, termoCessao, sei, autores
-    });
-    alert('Funcionalidade de cadastro ainda não implementada. Verifique o console para os dados.');
-    // Após o cadastro, você pode navegar para a lista de PIs ou dashboard
-    // navigate('/propriedade-intelectual');
+    setSubmitting(true);
+    try {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/pi`, {
+        titulo, status, protocolo, data_entrada: dataEntrada, tipo_pi: tipo,
+        termo_de_cessao: termoCessao === 'Sim', sei, autores: autores.filter(Boolean)
+      });
+      navigate('/propriedade-intelectual');
+    } catch (err) {
+      console.error("Erro ao cadastrar PI:", err);
+      alert("Erro ao cadastrar PI. Verifique os dados e tente novamente.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -157,7 +160,7 @@ export default function CadastroPI() {
           {/* Botões de Ação do Formulário */}
           <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '30px' }}>
             <button type="button" className="cancel-button" onClick={() => navigate(-1)}>Cancelar</button>
-            <button type="submit" className="submit-button">Cadastrar PI</button>
+            <button type="submit" className="submit-button" disabled={submitting}>{submitting ? "Salvando..." : "Cadastrar PI"}</button>
           </div>
         </form>
       </main>
