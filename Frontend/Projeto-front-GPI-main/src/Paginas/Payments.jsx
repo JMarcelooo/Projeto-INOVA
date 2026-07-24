@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Calendar as CalendarIcon } from 'lucide-react';
 import axios from 'axios';
-// Caminhos CORRIGIDOS para voltar uma pasta (..) e depois entrar em Components
 import Sidebar from '../Components/Sidebar';
 import PaymentCards from '../Components/PaymentCards';
 import UpcomingPayments from '../Components/UpcomingPayments';
@@ -88,7 +88,7 @@ export default function Payments() {
         ) : (
           <div className="calendar-section">
             <div className="calendar-header">
-              <span className="calendar-icon">📅</span>
+              <CalendarIcon size={24} className="calendar-icon" />
               <h2>Calendário de Pagamentos</h2>
             </div>
             <div className="calendar-and-list-container">

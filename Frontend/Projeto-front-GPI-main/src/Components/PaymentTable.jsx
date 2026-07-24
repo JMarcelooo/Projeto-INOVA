@@ -1,4 +1,5 @@
 import React from 'react';
+import { Pencil } from 'lucide-react';
 import '../Paginas/Payments.css';
 
 export default function PaymentTable({ onEdit, pagamentos = [] }) {
@@ -34,7 +35,7 @@ export default function PaymentTable({ onEdit, pagamentos = [] }) {
               <td>{p.vencimento}</td>
               <td><span className="status pago">{p.status}</span></td>
               <td>
-                <button className="edit-btn" onClick={() => onEdit(p)}>✏️</button>
+                <button className="edit-btn" onClick={() => onEdit(p)}><Pencil size={16} /></button>
               </td>
             </tr>
           ))}

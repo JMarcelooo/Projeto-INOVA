@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ArrowLeft } from 'lucide-react';
 import { useNavigate, useParams } from 'react-router-dom';
 import AdicionarRPIModal from '../Components/AdicionarRPIModal';
 import axios from 'axios';
@@ -40,7 +41,7 @@ export default function PatenteDetalhes() {
       <main style={{ flex: 1, backgroundColor: "white", padding: "30px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <button onClick={() => navigate(-1)} style={{ background: "none", border: "none", fontSize: "18px", cursor: "pointer", padding: "8px", borderRadius: "5px" }}>←</button>
+            <button onClick={() => navigate(-1)} style={{ background: "none", border: "none", cursor: "pointer", padding: "8px", borderRadius: "5px", display: "flex", alignItems: "center" }}><ArrowLeft size={20} /></button>
             <h2 style={{ fontSize: "20px", color: "#6B21A8" }}>Detalhes da Propriedade Intelectual</h2>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './Calendar.css'; // Estilos específicos do calendário
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import './Calendar.css';
 
 const Calendar = ({ selectedDate, setSelectedDate, payments }) => {
   const [currentMonth, setCurrentMonth] = useState(selectedDate.getMonth());
@@ -101,9 +102,9 @@ const Calendar = ({ selectedDate, setSelectedDate, payments }) => {
   return (
     <div className="calendar-container">
       <div className="calendar-nav">
-        <button onClick={handlePrevMonth}>&lt;</button>
+        <button onClick={handlePrevMonth}><ChevronLeft size={20} /></button>
         <h3>{monthNames[currentMonth]} {currentYear}</h3>
-        <button onClick={handleNextMonth}>&gt;</button>
+        <button onClick={handleNextMonth}><ChevronRight size={20} /></button>
       </div>
       <div className="calendar-grid">
         {dayLabels.map((label, index) => (

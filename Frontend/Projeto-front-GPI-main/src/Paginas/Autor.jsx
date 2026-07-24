@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { SlidersHorizontal, Pencil, Trash2 } from 'lucide-react';
 import Sidebar from '../Components/Sidebar';
-import RegisterAuthorModal from '../Components/RegisterAuthorModal'; // Importe o modal de cadastro
-import UpdateAuthorModal from '../Components/UpdateAuthorModal';     // Importe o modal de edição
+import RegisterAuthorModal from '../Components/RegisterAuthorModal';
+import UpdateAuthorModal from '../Components/UpdateAuthorModal';
 import axios from 'axios';
-import './Autor.css'; // Seu CSS para a página de autores
+import './Autor.css';
 
 export default function Autor() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -109,7 +110,7 @@ export default function Autor() {
                     </div>
                     <div className="header-buttons">
                         <button className="filter-button">
-                            <span className="filter-icon">⚙️</span> Filtros
+                            <SlidersHorizontal size={16} className="filter-icon" /> Filtros
                         </button>
                         {/* Botão para abrir o modal de CADASTRO */}
                         <button className="add-author-button" onClick={handleOpenRegisterModal}>
@@ -139,10 +140,10 @@ export default function Autor() {
                                     <td>{author.university}</td>
                                     <td>
                                         <button className="edit-author-button" onClick={() => handleOpenUpdateModal(author)}>
-                                            ✏️
+                                            <Pencil size={16} />
                                         </button>
                                         <button className="delete-author-button" onClick={() => handleDeleteAuthor(author.id)} style={{ marginLeft: 8 }}>
-                                            🗑️
+                                            <Trash2 size={16} />
                                         </button>
                                     </td>
                                 </tr>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Plus } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Detalhe1.css';
@@ -150,7 +151,7 @@ export default function CadastroPI() {
                 {/* Botão de adicionar autor, só aparece no último campo */}
                 {index === autores.length - 1 && (
                   <button type="button" className="add-author-button" onClick={handleAddAutor}>
-                    <i className="fas fa-plus"></i>
+                    <Plus size={16} />
                   </button>
                 )}
               </div>

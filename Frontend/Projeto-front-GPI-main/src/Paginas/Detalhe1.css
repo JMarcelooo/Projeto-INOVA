@@ -1,487 +1,27 @@
-.container-patente {
-  display: flex;
-  min-height: 100vh;
-  font-family: 'Arial', sans-serif;
-  background-color: #f9fafb;
-}
+/* ==============================
+   DETALHES / CADASTRO PI
+   ============================== */
 
-.sidebar {
-  width: 250px;
-  background-color: #6B21A8;
-  color: white;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.sidebar img {
-  width: 150px;
-  margin-bottom: 30px;
-}
-
-.sidebar nav {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.sidebar button {
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 14px;
-  text-align: left;
-  cursor: pointer;
-  padding: 10px 5px;
-  border-radius: 5px;
-  transition: background 0.3s;
-}
-
-.sidebar button:hover {
-  background-color: #7E22CE;
-}
-
-.main-content {
-  flex: 1;
-  padding: 30px;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.header h2 {
-  color: #6B21A8;
-  font-size: 22px;
-  margin-left: 10px;
-}
-
-.status-badge {
-  background-color: #FED7AA;
-  color: #C2410C;
-  padding: 4px 8px;
-  border-radius: 5px;
-  font-size: 12px;
-  margin-right: 10px;
-}
-
-.edit-button {
-  background-color: #F97316;
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.tabs {
-  margin: 20px 0;
-}
-
-.tabs button {
-  background-color: #E5E7EB;
-  border: 1px solid #D1D5DB;
-  padding: 10px 16px;
-  border-radius: 5px 5px 0 0;
-  margin-right: 10px;
-  cursor: pointer;
-  font-weight: normal;
-}
-
-.tabs button.active {
-  background-color: white;
-  font-weight: bold;
-}
-
-.card {
-  background-color: #f9f5ff;
-  padding: 20px;
-  border-radius: 10px;
-  color: #9333ea;
-}
-
-.card h3 {
-  color: #9333ea;
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-
-.grid-info {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  font-size: 14px;
-}
-
-.authors-card {
-  margin-top: 20px;
-  background-color: #f3e8ff;
-  padding: 15px;
-  border-radius: 10px;
-  color: #6b21a8;
-}
-.secao-autores {
- width: 100%;
-  max-width: 100%;
-  margin-top: 30px;
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: #fff;
-  box-sizing: border-box;
-}
-
-.cabecalho-autores {
-  display: flex;
-  align-items: center;
-  background-color: #f5eafa;
-  padding: 12px 16px;
-  border-bottom: 1px solid #d1d5db;
-}
-
-.icone-autores {
-  font-size: 24px;
-  color: #9b27b0;
-  margin-right: 10px;
-}
-
-.cabecalho-autores h3 {
-  margin: 0;
-  font-size: 20px;
-  color: #9b27b0;
-  font-weight: 700;
-}
-
-.lista-autores {
-  padding: 16px;
-}
-
-.autor-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.autor-icon {
-  background-color: #ffffff;
-  color: white;
-  font-size: 22px;
-  width: 110px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 12px;
-}
-
-.autor-nome {
-  font-size: 16px;
-  font-weight: bold;
-  color: #111827;
-}
-.secao-depositantes {
-  width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  margin-top: 30px;
-  background: #fff;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-.secao-depositantes .secao-titulo {
-  background: #f4e9f7;
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  gap: 10px;
-}
-
-.secao-depositantes .secao-titulo h3 {
-  color: #8e24aa;
-  font-size: 24px;
-  margin: 0;
-}
-
-.secao-depositantes .icone-titulo {
-  font-size: 30px;
-  color: #8e24aa;
-}
-
-.conteudo-depositantes {
-  display: flex;
-  justify-content: space-around;
-  padding: 30px;
-  flex-wrap: wrap;
-  text-align: center;
-}
-
-.coluna {
-  flex: 1 1 200px;
-  margin: 10px;
-}
-
-.titulo-coluna {
-  font-weight: bold;
-  color: #555;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.valor-coluna {
-  font-size: 20px;
-  font-weight: bold;
-}
-.patente-detalhes-container {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background-color: #f0f2f5;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 900px;
-  margin: 20px auto;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.title-section {
-  display: flex;
-  align-items: center;
-}
-
-.info-icon {
-  background-color: #e6e6fa; /* Light purple */
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 15px;
-}
-
-.info-icon i {
-  color: #6a5acd; /* Medium purple */
-  font-size: 20px;
-}
-
-h1 {
-  color: #333;
-  font-size: 24px;
-  margin: 0;
-}
-
-.add-rpi-button {
-  background-color: #ffa500; /* Orange */
-  color: white;
-  border: none;
-  border-radius: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.add-rpi-button:hover {
-  background-color: #e69500; /* Darker orange */
-}
-
-.add-rpi-button i {
-  font-size: 14px;
-}
-
-.rpi-events-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.rpi-card {
-  background-color: #fffacd; /* Light yellow */
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 150px; /* Adjust as needed */
-}
-
-.rpi-card .card-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  color: #d2691e; /* Chocolate/Orange-brown */
-  font-weight: bold;
-}
-
-.rpi-card .card-header i {
-  margin-right: 8px;
-  font-size: 18px;
-}
-
-.rpi-card p {
-  color: #555;
-  font-size: 14px;
-  line-height: 1.5;
-}
-/* ESTILOS PARA O CONTAINER DO HISTÓRICO DE EVENTOS */
-.historico-eventos-container {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 30px; /* Garante espaçamento entre as abas e o conteúdo */
-}
-
-.historico-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 25px; /* Espaço entre o cabeçalho e a timeline */
-}
-
-.historico-icon {
-  background-color: #7E22CE; /* Cor roxa do ícone */
-  color: white;
-  border-radius: 50%;
-  width: 40px; /* Um pouco maior que o info-icon */
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-}
-
-.historico-eventos-container h1 {
-  color: #7E22CE; /* Cor roxa para o título */
-  font-size: 24px;
-  margin: 0;
-}
-
-/* ESTILOS PARA A LINHA DO TEMPO (TIMELINE) */
-.timeline {
-  position: relative;
-  padding-left: 30px; /* Espaço para a linha vertical */
-}
-
-.timeline::before { /* A linha vertical */
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 10px; /* Posição da linha */
-  width: 2px;
-  height: 100%;
-  background-color: #ddd; /* Cor da linha */
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 30px; /* Espaço entre os itens da timeline */
-  padding-left: 30px; /* Espaço entre o círculo e o conteúdo do item */
-}
-
-.timeline-item:last-child {
-  margin-bottom: 0; /* Remove a margem do último item */
-}
-
-.timeline-icon { /* O círculo colorido em cada ponto da linha do tempo */
-  position: absolute;
-  top: 0;
-  left: 0; /* Alinhado com a linha vertical */
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #ccc; /* Cor padrão, será sobrescrita */
-  border: 3px solid white; /* Borda branca para destacar do fundo */
-  box-shadow: 0 0 0 2px #ccc; /* Sombra para o círculo */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Cores dos ícones baseadas no 'status' */
-.timeline-icon.pending { /* Roxo */
-  background-color: #7E22CE;
-  box-shadow: 0 0 0 2px #7E22CE;
-}
-.timeline-icon.orange { /* Laranja */
-  background-color: #F97316;
-  box-shadow: 0 0 0 2px #F97316;
-}
-.timeline-icon.green { /* Verde */
-  background-color: #22C55E;
-  box-shadow: 0 0 0 2px #22C55E;
-}
-.timeline-icon.red { /* Vermelho */
-  background-color: #EF4444;
-  box-shadow: 0 0 0 2px #EF4444;
-}
-
-.timeline-content {
-  background-color: #F9FAFB; /* Fundo levemente cinza para o conteúdo */
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #E5E7EB;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-.timeline-date {
-  font-size: 13px;
-  color: #7E22CE; /* Roxo */
-  font-weight: bold;
-  margin-bottom: 5px;
-  display: block; /* Garante que o título e a descrição fiquem em novas linhas */
-}
-
-.timeline-title {
-  font-size: 16px;
-  color: #333;
-  margin: 0 0 5px 0;
-  font-weight: bold;
-}
-
-.timeline-description {
-  font-size: 14px;
-  color: #666;
-  margin: 0;
-  line-height: 1.5;
-}
-/* Estilos para seções de card (Informações principais, Autores, etc.) */
+/* ---- Sections (card-form) ---- */
 .card-form-section {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px; /* Espaço entre as seções */
+  background: var(--color-surface);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  margin-bottom: var(--space-5);
 }
 
 .section-title {
-  color: #6B21A8; /* Cor roxa para os títulos de seção */
-  margin-bottom: 15px;
-  font-size: 18px;
-  font-weight: bold;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-4) 0;
+  font-size: var(--text-lg);
+  font-weight: 700;
 }
 
-/* Grid para o layout dos campos do formulário */
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 a 3 colunas dependendo do espaço */
-  gap: 15px 20px; /* Espaçamento vertical e horizontal */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-4) var(--space-6);
 }
 
 .form-group {
@@ -490,80 +30,326 @@ h1 {
 }
 
 .form-group label {
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 5px;
-  font-weight: bold;
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-1);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .form-group input,
 .form-group select {
-  padding: 10px;
-  border: 1px solid #D1D5DB;
-  border-radius: 5px;
-  font-size: 14px;
-  width: 100%; /* Garante que ocupem a largura do form-group */
-  box-sizing: border-box; /* Inclui padding e border no width */
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Estilo para o campo de autor com botão de adicionar */
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-100);
+}
+
 .form-group-inline {
-  display: flex;
-  align-items: flex-end; /* Alinha o input e o botão pela base */
-  gap: 10px;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: var(--space-2);
 }
 
 .form-group-inline input {
-  flex-grow: 1; /* Faz o input ocupar o máximo de espaço */
+  flex: 1;
 }
 
-.add-author-button {
-  background-color: #F97316; /* Laranja */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 12px;
-  cursor: pointer;
-  font-size: 16px;
-  display: flex; /* Para centralizar o ícone */
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s ease;
-}
-
-.add-author-button:hover {
-  background-color: #E65100; /* Laranja mais escuro no hover */
-}
-
-/* Estilos para os botões de ação do formulário (Cancelar, Cadastrar) */
+/* ---- Buttons ---- */
 .cancel-button {
-  background-color: #EF4444; /* Vermelho */
-  color: white;
-  padding: 10px 20px;
+  background: var(--color-border);
+  color: var(--color-text-secondary);
   border: none;
-  border-radius: 5px;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
   cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  transition: background var(--transition);
 }
 
 .cancel-button:hover {
-  background-color: #DC2626; /* Vermelho mais escuro no hover */
+  background: var(--color-text-muted);
+  color: #fff;
 }
 
 .submit-button {
-  background-color: #7E22CE; /* Roxo */
-  color: white;
-  padding: 10px 20px;
+  background: var(--color-primary);
+  color: #fff;
   border: none;
-  border-radius: 5px;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
   cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  transition: background var(--transition);
 }
 
 .submit-button:hover {
-  background-color: #6B21A8; /* Roxo mais escuro no hover */
+  background: var(--color-primary-dark);
 }
 
-/* Estilos existentes para .container, .sidebar, main, etc., devem ser mantidos. */
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---- Autor section ---- */
+.secao-autores {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-surface);
+  margin-top: var(--space-6);
+}
+
+.cabecalho-autores {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-primary-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cabecalho-autores h3 {
+  margin: 0;
+  font-size: var(--text-lg);
+  color: var(--color-primary);
+}
+
+.lista-autores {
+  padding: var(--space-5);
+}
+
+.autor-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.autor-nome {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* ---- Depositantes ---- */
+.secao-depositantes {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  margin-top: var(--space-6);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.secao-depositantes .secao-titulo {
+  background: var(--color-primary-bg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+}
+
+.secao-depositantes .secao-titulo h3 {
+  color: var(--color-primary);
+  font-size: var(--text-lg);
+  margin: 0;
+}
+
+.conteudo-depositantes {
+  display: flex;
+  justify-content: space-around;
+  padding: var(--space-6);
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.coluna {
+  flex: 1 1 200px;
+  margin: var(--space-2);
+}
+
+.titulo-coluna {
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
+}
+
+.valor-coluna {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* ---- Patente detalhes container ---- */
+.patente-detalhes-container {
+  background: var(--color-surface);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  margin-top: var(--space-6);
+}
+
+.patente-detalhes-container .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+
+.patente-detalhes-container h1 {
+  font-size: var(--text-xl);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.add-rpi-button {
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-full);
+  padding: var(--space-2) var(--space-5);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: background var(--transition);
+}
+
+.add-rpi-button:hover {
+  background: var(--color-accent-dark);
+}
+
+.rpi-events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-4);
+}
+
+.rpi-card {
+  background: var(--color-primary-bg);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  border: 1px solid var(--color-primary-100);
+}
+
+.rpi-card .card-header {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.rpi-card p {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ---- Historic ---- */
+.historico-eventos-container {
+  background: var(--color-surface);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  margin-top: var(--space-6);
+}
+
+.historico-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.historico-header h1 {
+  font-size: var(--text-xl);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.timeline {
+  position: relative;
+  padding-left: var(--space-8);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 11px;
+  width: 2px;
+  height: 100%;
+  background: var(--color-border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--space-6);
+  padding-left: var(--space-6);
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-icon {
+  position: absolute;
+  top: 4px;
+  left: calc(-1 * var(--space-8) + 4px);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-border);
+  border: 3px solid var(--color-surface);
+}
+
+.timeline-icon.pending { background: var(--color-primary); }
+.timeline-icon.orange { background: var(--color-accent); }
+.timeline-icon.green { background: var(--color-success); }
+.timeline-icon.red { background: var(--color-error); }
+
+.timeline-content {
+  background: var(--color-hover);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-light);
+}
+
+.timeline-date {
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+  display: block;
+}
+
+.timeline-title {
+  font-size: var(--text-base);
+  color: var(--color-text);
+  margin: 0 0 var(--space-1) 0;
+  font-weight: 600;
+}
+
+.timeline-description {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}

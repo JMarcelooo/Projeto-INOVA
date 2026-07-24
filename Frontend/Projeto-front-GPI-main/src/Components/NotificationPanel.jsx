@@ -1,4 +1,5 @@
 import React from 'react';
+import { Clock, CheckCircle, Calendar } from 'lucide-react';
 
 export default function NotificationPanel() {
   return (
@@ -20,19 +21,19 @@ export default function NotificationPanel() {
         <div className="border-l-4 border-red-400 pl-2">
           <p className="font-semibold">Prazo se aproximando</p>
           <p className="text-gray-500">Submissão do PI 123456 vence em 3 dias.</p>
-          <span className="text-xs text-gray-400">⏱️ Há 2 horas</span>
+          <span className="text-xs text-gray-400"><Clock size={12} className="inline mr-1" />Há 2 horas</span>
         </div>
 
         <div className="border-l-4 border-green-400 pl-2">
           <p className="font-semibold">Nova PI cadastrada</p>
           <p className="text-gray-500">Sistema de Reconhecimento Facial foi cadastrado com sucesso.</p>
-          <span className="text-xs text-gray-400">✅ Há 5 horas</span>
+          <span className="text-xs text-gray-400"><CheckCircle size={12} className="inline mr-1" />Há 5 horas</span>
         </div>
 
         <div className="border-l-4 border-blue-400 pl-2">
           <p className="font-semibold">Status atualizado</p>
           <p className="text-gray-500">Seu status alterado para "Em análise".</p>
-          <span className="text-xs text-gray-400">📅 Há 1 dia</span>
+          <span className="text-xs text-gray-400"><Calendar size={12} className="inline mr-1" />Há 1 dia</span>
         </div>
       </div>
     </div>

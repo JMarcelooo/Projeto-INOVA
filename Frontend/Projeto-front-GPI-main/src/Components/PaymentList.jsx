@@ -1,4 +1,5 @@
 import React from 'react';
+import { Calendar } from 'lucide-react';
 import './PaymentList.css'; // Estilos específicos da lista de pagamentos
 
 const PaymentList = ({ payments, monthName, year }) => {
@@ -23,7 +24,7 @@ const PaymentList = ({ payments, monthName, year }) => {
               <div className="payment-details">
                 <p className="description">{payment.description}</p>
                 <div className="date-and-course">
-                  <span className="date-icon">📅</span>
+                  <Calendar size={14} className="date-icon" />
                   <span>Vencimento: {formatDate(payment.dueDate)}</span>
                   <span>{payment.course}</span>
                 </div>

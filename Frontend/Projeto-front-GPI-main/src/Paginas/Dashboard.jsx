@@ -1,4 +1,5 @@
 import React from 'react';
+import { User, Bell } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import '../Tela2.css';
 
@@ -39,14 +40,14 @@ function Dashboard() {
 
       <div className="painel-direito">
         <div className="usuario">
-          <div><span>👤</span> Administrador</div>
+          <div><User size={18} style={{ marginRight: 6, verticalAlign: 'middle' }} /> Administrador</div>
           <small>email@email.com</small>
           <button className="sair" onClick={() => navigate("/login")}>Sair</button>
         </div>
 
         <div className="notificacoes">
           <div className="topo-notificacoes">
-            <span>🔔</span>
+            <Bell size={18} />
             <h4>Notificações</h4>
           </div>
           <p style={{ fontSize: 14, color: '#888' }}>Nenhuma notificação</p>

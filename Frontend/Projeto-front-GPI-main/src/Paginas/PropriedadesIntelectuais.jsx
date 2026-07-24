@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Eye } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./PI.css";
@@ -73,7 +74,7 @@ function PropriedadesIntelectuais() {
                       <td>{pi.protocolo || "-"}</td>
                       <td>{pi.createdAt ? new Date(pi.createdAt).toLocaleDateString("pt-BR") : "-"}</td>
                       <td>
-                        <button onClick={() => navigate(`/detalhes/${pi.id}`)} className="btn-acao">👀</button>
+                        <button onClick={() => navigate(`/detalhes/${pi.id}`)} className="btn-acao"><Eye size={18} /></button>
                       </td>
                     </tr>
                   ))
